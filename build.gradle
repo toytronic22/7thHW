@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.8.2'
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation('com.codeborne:selenide:6.4.0')
+    testImplementation('org.slf4j:slf4j-simple:1.7.30')
+
+    testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+}
+
+test {
+    useJUnitPlatform()
+}
