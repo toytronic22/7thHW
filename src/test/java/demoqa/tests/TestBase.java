@@ -1,7 +1,7 @@
-package mainpck.tests;
+package demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
-import mainpck.pages.FormPage;
+import demoqa.pages.FormPage;
 import org.junit.jupiter.api.BeforeAll;
 
 public abstract class TestBase {

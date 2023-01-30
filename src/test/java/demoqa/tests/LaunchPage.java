@@ -1,6 +1,6 @@
-package mainpck.tests;
+package demoqa.tests;
 
-import mainpck.testdata.TestData;
+import demoqa.testdata.TestData;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

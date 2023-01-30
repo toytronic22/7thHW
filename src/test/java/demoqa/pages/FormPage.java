@@ -1,8 +1,8 @@
-package mainpck.pages;
+package demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import mainpck.pages.components.CalendarComponent;
-import mainpck.pages.components.ModalComponent;
+import demoqa.pages.components.CalendarComponent;
+import demoqa.pages.components.ModalComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;

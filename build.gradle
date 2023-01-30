@@ -26,15 +26,18 @@ dependencies {
     implementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
+def allureVersion = "2.19.0",
+    slf4jVersion = "1.7.32"
+
 allure {
     report {
-        version.set("2.17.3") //версия Allure Report (https://github.com/allure-framework/allure2)
+        version.set(allureVersion)//версия Allure Report (https://github.com/allure-framework/allure2)
     }
     adapter {
         aspectjWeaver.set(true) // обработка аннотации @Step
         frameworks {
             junit5 {
-                adapterVersion.set("2.17.3") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
+                adapterVersion.set(allureVersion) //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
             }
         }
     }
@@ -45,5 +48,13 @@ test {
 }
 
 task simple_test(type: Test) {
-    useJUnitPlatform {includeTags("simple")}
+    useJUnitPlatform {
+        includeTags("simple")
+    }
+}
+
+task remote_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("remote")
+    }
 }

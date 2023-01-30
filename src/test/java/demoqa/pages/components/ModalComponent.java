@@ -1,8 +1,6 @@
-package mainpck.pages.components;
+package demoqa.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
-import mainpck.pages.FormPage;
-import org.w3c.dom.html.HTMLInputElement;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
