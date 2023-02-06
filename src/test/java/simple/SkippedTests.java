@@ -9,13 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Tag("simple")
 public class SkippedTests {
     @Test
-    @Disabled
+    @Disabled("Some reason")
     void test1() {
         assertTrue(false);
     }
 
     @Test
-    @Disabled("Some reason")
     void test2() {
         assertTrue(false);
     }

@@ -18,16 +18,16 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-dependencies {
-    testImplementation('com.codeborne:selenide:6.4.0')
-    testImplementation('org.slf4j:slf4j-simple:1.7.30')
-
-    testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
-    implementation 'com.github.javafaker:javafaker:1.0.2'
-}
-
 def allureVersion = "2.19.0",
     slf4jVersion = "1.7.32"
+
+dependencies {
+    testImplementation("com.codeborne:selenide:6.10.3")
+    testImplementation("org.slf4j:slf4j-simple:1.7.30")
+    testImplementation("io.qameta.allure:allure-selenide:$allureVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
+    testImplementation("com.github.javafaker:javafaker:1.0.2")
+}
 
 allure {
     report {
@@ -50,11 +50,5 @@ test {
 task simple_test(type: Test) {
     useJUnitPlatform {
         includeTags("simple")
-    }
-}
-
-task remote_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("remote")
     }
 }
