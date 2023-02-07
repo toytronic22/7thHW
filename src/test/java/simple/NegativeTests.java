@@ -21,20 +21,17 @@ public class NegativeTests {
     }
 
     @Test
-    @Disabled("Some reason")
     void test3() {
-        assertTrue(true);
+        assertTrue(false);
     }
 
     @Test
-    @Disabled("Some reason")
     void test4() {
-        assertTrue(true);
+        assertTrue(false);
     }
 
     @Test
-    @Disabled("Some reason")
     void test5() {
-        assertTrue(true);
+        assertTrue(false);
     }
 }
