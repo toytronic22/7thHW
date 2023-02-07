@@ -16,6 +16,7 @@ public class SkippedTests {
     }
 
     @Test
+    @Disabled("Some reason")
     void test2() {
         fail();
     }
