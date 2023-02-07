@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="demoqa.tests.RegistrationWithRemoteDriverTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-07T15:48:24" hostname="DESKTOP-BO9395R" time="24.259">
+  <properties/>
+  <testcase name="successfulRegistrationTest()" classname="demoqa.tests.RegistrationWithRemoteDriverTests" time="24.259"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
