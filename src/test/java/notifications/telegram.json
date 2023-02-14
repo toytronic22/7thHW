@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "pols-12-homework",
+    "environment": "some env",
+    "comment": "some comment",
+    "reportLink": "https://jenkins.autotests.cloud/job/pols-12-homework/11/",
+    "language": "en",
+    "messenger": "telegram",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "6085390693:AAECfJ33UsH0uFxBaH1lU56VYuwYEM7NISo",
+    "chat": "-753847022",
+    "replyTo": ""
+  }
+}
