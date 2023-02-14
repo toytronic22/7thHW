@@ -12,20 +12,20 @@ public class SystemPropertiesTests {
     }
 
     @Test
-    void simpleProperty1Test() {
+    void simplePropertyTest1() {
         System.setProperty("browser", "opera");
         String browserName = System.getProperty("browser");
         System.out.println(browserName); // opera
     }
 
     @Test
-    void simpleProperty2Test() {
+    void simplePropertyTest2() {
         String browserName = System.getProperty("browser", "firefox");
         System.out.println(browserName); // firefox
     }
 
     @Test
-    void simpleProperty3Test() {
+    void simplePropertyTest3() {
         System.setProperty("browser", "opera");
         String browserName = System.getProperty("browser", "firefox");
         System.out.println(browserName); // opera
@@ -45,7 +45,7 @@ public class SystemPropertiesTests {
 
     @Test
     @Tag("hello")
-    void simpleProperty5Test() {
+    void simplePropertyTest5() {
         System.out.println("Hello, " + System.getProperty("user_name", "unknown student"));
 
         /*
