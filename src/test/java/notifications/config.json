@@ -1,9 +1,9 @@
 {
   "base": {
-    "project": "toytronic_properties2",
+    "project": "${JOB_BASE_NAME}",
     "environment": "some env",
     "comment": "some comment",
-    "reportLink": "https://jenkins.autotests.cloud/job/toytronic_properties2/",
+    "reportLink": "${BUILD_URL}",
     "language": "en",
     "messenger": "telegram",
     "allureFolder": "allure-report/",
