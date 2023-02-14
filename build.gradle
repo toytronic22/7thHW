@@ -1,60 +1,94 @@
 plugins {
-    id 'java'
-    id "io.qameta.allure" version "2.9.6"
+    id 'java-library'
+    id 'io.qameta.allure' version '2.10.0'
 }
 
 repositories {
     mavenCentral()
 }
 
-ext {
-    junitVersion = '5.8.2'
-}
-
-sourceCompatibility = '11'
-targetCompatibility = '11'
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
-def allureVersion = "2.19.0",
-    slf4jVersion = "1.7.32"
-
-dependencies {
-    testImplementation("com.codeborne:selenide:6.10.3")
-    testImplementation("org.slf4j:slf4j-simple:1.7.30")
-    testImplementation("io.qameta.allure:allure-selenide:$allureVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
-    testImplementation("com.github.javafaker:javafaker:1.0.2")
-}
-
 allure {
     report {
-        version.set(allureVersion)//версия Allure Report (https://github.com/allure-framework/allure2)
+        version.set("2.19.0")
     }
-    adapter {
-        aspectjWeaver.set(true) // обработка аннотации @Step
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
         frameworks {
-            junit5 {
-                adapterVersion.set(allureVersion) //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
+            junit5 { //название фреймворка
+                adapterVersion.set("2.19.0") //версия интеграции фреймворка и Allure
             }
         }
     }
 }
 
-test {
-    useJUnitPlatform()
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
-task simple_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("simple")
-    }
+dependencies {
+    testImplementation (
+            "com.github.javafaker:javafaker:1.0.2",
+            "com.codeborne:selenide:6.9.0",
+            "io.qameta.allure:allure-selenide:2.19.0",
+            "org.junit.jupiter:junit-jupiter:5.9.1",
+            "org.slf4j:slf4j-simple:1.7.32"
+    )
+}
 
-task remote_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("remote")
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
         }
+    }
+}
+
+task smoke_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("smoke")
+    }
+}
+
+task one_property_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("one_property")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("hello")
+    }
+}
+
+task two_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("one_property")
+        includeTags("hello")
+    }
+}
+
+task tag_example_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("needed", "negative")
+        excludeTags("prod")
+    }
+}
+
+help {
+    doFirst {
+        println ""
+        println "************************************************************************ "
+        println "***                                                                  *** "
+        println "*** Welcome to https://github.com/qa-guru/demoqa-test-16!            *** "
+        println "***                                                                  *** "
+        println "*** ./gradlew help                                                   *** "
+        println "***                                                                  *** "
+        println "************************************************************************ "
+        println ""
     }
 }
