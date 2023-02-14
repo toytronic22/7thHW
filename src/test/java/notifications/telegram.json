@@ -1,9 +1,9 @@
 {
   "base": {
-    "project": "pols-12-homework",
+    "project": "toytronic_properties2",
     "environment": "some env",
     "comment": "some comment",
-    "reportLink": "https://jenkins.autotests.cloud/job/pols-12-homework/11/",
+    "reportLink": "https://jenkins.autotests.cloud/job/toytronic_properties2/",
     "language": "en",
     "messenger": "telegram",
     "allureFolder": "allure-report/",
